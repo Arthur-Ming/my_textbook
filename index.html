@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Главная</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="h"></div>
+		<header class="header">
+			<div class="header__body">
+				<div class="container">
+					<div class="header__burger">
+						<span></span>
+					</div>
+					<nav class="header__menu">
+						<div class="header__list">
+							<a href="#javaScript" class="header__link">Java Script</a>
+							<a href="#jQuery" class="header__link">jQuery</a>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<div class="content" id='javaScript'>
+
+			<div class="left-column">
+				<ul>
+					<li><a href="#nav_dom_elem"> Навигация по DOM-элементам</a>
+						<ul>
+							<li><a href="#nav_tables">для таблиц</a></li>
+						</ul>
+					</li>
+					<li><a href="#propertiesOfelem" class="t">Свойства узлов: тип, тег и содержимое</a></li>
+					<li><a href="#properties_attributes">Атрибуты и свойства</a></li>
+					<li><a href="#document_change">Изменение документа. Создание, вставка элементов</a></li>
+					<li><a href="#styles_classes">Стили и классы.Замена, вставка, удаление классов</a></li>
+					<li><a href="#SizingScrolling_elem">Размеры и прокрутка элементов</a></li>
+					<li><a href="#window_dimensions">Размеры окна</a></li>
+					<li><a href="#scrolling">Прокрутка</a></li>
+					<li><a href="#coordinates">Координаты</a></li>
+					<li><a href="#browser_events">Введение в браузерные события</a></li>
+					<li><a href="#interface_events">Интерфейсные события</a></li>
+					<li><a href="#form_properties_methods">Свойства и методы формы</a></li>
+				</ul>
+			</div>
+
+			<div class="main">
+				<h2 id="nav_dom_elem"> Навигация по DOM-элементам</h2>
+				<p>Получив DOM-узел, мы можем перейти к его ближайшим соседям используя навигационные ссылки. <br>
+					Есть два основных набора ссылок:</p>
+				<h3>Для всех узлов:</h3>
+
+
+				<table>
+					<tr>
+						<td>
+							<pre>parentNode</pre>
+						</td>
+						<td>
+							<p>//возвращает родителя определенного элемента DOM дерева</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>childNodes</pre>
+						</td>
+						<td>
+							<p>//возвращает коллекцию дочерних элементов данного элемента</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>firstChild</pre>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<pre>lastChild</pre>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<pre>previousSibling</pre>
+						</td>
+						<td>
+							<p>//возвращает узел предшедствующий указанному в родительском элементе</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>nextSibling</pre>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+
+				<h3>Только для узлов-элементов:</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>parentElement</pre>
+						</td>
+						<td>
+							<p>//возвращает родителя узла DOM Element, или null если узел не имеет родителя, или его родитель
+								не DOM Element</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>children</pre>
+						</td>
+						<td>
+							<p> //возвращает HTMLCollection, содержащее все дочерние elements узла, на котором он был вызван
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>firstElementChild</pre>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<pre>lastElementChild</pre>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<pre>previousElementSibling</pre>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<pre>nextElementSibling</pre>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+				<h4>Пример использования:</h4>
+				<pre>document.body.children</pre>
+
+				<h2 id="nav_tables">Таблицы</h2>
+				<h3>Элемент &lt;table&gt;, в дополнение к свойствам, о которых речь шла выше, поддерживает следующие:</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>table.rows</pre>
+						</td>
+						<td>
+							<p> – коллекция строк &lt;tr&gt; таблицы</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>table.caption/tHead/tFoot</pre>
+						</td>
+						<td>
+							<p>– ссылки на элементы таблицы &lt;caption&gt;, &lt;thead&gt;, &lt;tfoot&gt;</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>table.tBodies</pre>
+						</td>
+						<td>
+							<p>– коллекция элементов таблицы &lt;tbody&gt; (по спецификации их может быть больше одного)</p>
+						</td>
+					</tr>
+				</table>
+
+				<h4>&lt;thead&gt;, &lt;tfoot&gt;, &lt;tbody&gt; предоставляют свойство rows:</h4>
+				<pre>tbody.rows</pre>
+				<p>– коллекция строк &lt;tr&gt; секции</p>
+				<h4>&lt;tr&gt;:</h4>
+				<table>
+					<tr>
+						<td>
+							<pre>tr.cells</pre>
+						</td>
+						<td>
+							<p> – коллекция &lt;td&gt; и &lt;th&gt; ячеек, находящихся внутри строки &lt;tr&gt;</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>tr.sectionRowIndex</pre>
+						</td>
+						<td>
+							<p> – номер строки &lt;tr> в текущей секции &lt;thead&gt;/&lt;tbody&gt;/&lt;tfoot&gt;</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>tr.rowIndex</pre>
+						</td>
+						<td>
+							<p> – номер строки &lt;tr&gt; в таблице (включая все строки таблицы)</p><br>
+						</td>
+					</tr>
+				</table>
+
+				<h4>&lt;td&gt; and &lt;th&gt;:</h4>
+				<pre>td.cellIndex</pre>
+				<p>– номер ячейки в строке &lt;tr&gt;</p><br>
+				<h4>Пример использования:</h4>
+				<table id="table">
+					<tr>
+						<td>один</td>
+						<td>два</td>
+					</tr>
+					<tr>
+						<td>три</td>
+						<td>четыре</td>
+					</tr>
+				</table>
+				<p>alert</p>
+				<pre>(table.rows[0].cells[1].innerHTML)</pre>
+				<p>// выводит содержимое первой строки, второй ячейки -> "два"</p><br><br>
+				<table>
+					<tr>
+						<td>Метод</td>
+						<td>Ищет по..</td>
+						<td>Ищет внутри элемента?</td>
+						<td>Возвращает живую коллекцию?</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>querySelector</pre>
+						</td>
+						<td>CSS-selector</td>
+						<td>✔</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>querySelectorAll</pre>
+						</td>
+						<td>CSS-selector</td>
+						<td>✔</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>getElementById</pre>
+						</td>
+						<td>id</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>getElementsByName</pre>
+						</td>
+						<td>name</td>
+						<td>-</td>
+						<td>✔</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>getElementsByTagName</pre>
+						</td>
+						<td>tag or '*'</td>
+						<td>✔</td>
+						<td>✔</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>getElementsByClassName</pre>
+						</td>
+						<td>class</td>
+						<td>✔</td>
+						<td>✔</td>
+					</tr>
+				</table>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector(".block")</pre><br><br>
+
+				<table>
+					<tr>
+						<td>
+							<pre>elem.matches(css)</pre>
+						</td>
+						<td>
+							<p>метод проверяет, удовлетворяет ли элемент CSS-селектору.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.closest(css)</pre>
+						</td>
+						<td>
+							<p>возвращает ближайший родительский элемент (или сам элемент), который соответствует заданному
+								CSS-селектору или null, если таковых элементов вообще нет. Не поддерживает IE</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elemA.contains(elemB)</pre>
+						</td>
+						<td>
+							<p>вернёт true, если elemB находится внутри elemA (elemB потомок elemA) или когда elemA==elemB</p>
+						</td>
+					</tr>
+				</table>
+				<h2 id="propertiesOfelem">Свойства узлов: тип, тег и содержимое</h2>
+				<pre>nodeName/tagName/className</pre><br>
+				<p>Для элементов это свойство возвращает название тега (записывается в верхнем регистре, за исключением
+					XML-режима). Для узлов-неэлементов nodeName описывает, что это за узел. Только для чтения</p><br>
+				<pre>innerHTML</pre>
+				<p> - внутреннее HTML-содержимое узла-элемента. Можно изменять</p><br>
+				<h4>Пример использования:</h4>
+				<p>alert( document.body.innerHTML ); // читаем текущее содержимое</p><br>
+				<p>document.body.innerHTML = 'Новый BODY!'; // заменяем содержимое</p><br>
+
+				<pre>textContent</pre><br>
+				<p>текст внутри элемента: HTML за вычетом всех <тегов>. Запись в него помещает текст в элемент, при этом все
+						специальные символы и теги интерпретируются как текст. Можно использовать для защиты от вставки
+						произвольного HTML кода</p>
+				<pre>hidden</pre>
+				<p> - если true, то же самое, что и CSS display:none</p><br>
+				<h2 id="properties_attributes">Атрибуты и свойства</h2>
+				<h3>Методы для работы с атрибутами:</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>elem.hasAttribute(name)</pre>
+						</td>
+						<td>
+							<p>– проверить на наличие</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.getAttribute(name)</pre>
+						</td>
+						<td>
+							<p>– получить значение</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.setAttribute(name, value)</pre>
+						</td>
+						<td>
+							<p>– установить значение</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.removeAttribute(name)</pre>
+						</td>
+						<td>
+							<p>– удалить атрибут</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.attributes</pre>
+						</td>
+						<td>
+							<p>– это коллекция всех атрибутов</p>
+						</td>
+					</tr>
+				</table>
+				<h2 id="document_change">Изменение документа. Создание, вставка элементов.</h2>
+				<h3>Создание элемента</h3>
+				<p>DOM-узел можно создать двумя методами:</p><br>
+				<pre>document.createElement(tag)</pre>
+				<p> - создаёт новый элемент с заданным тегом</p><br>
+				<h4>Пример использования:</h4>
+				<pre>
+               	let div = document.createElement('div');
+						div.className = "alert";
+						div.innerHTML = "&lt;strong&gt;Всем привет!&lt;strong&gt; Вы прочитали важное сообщение.";
+               </pre><br><br><br>
+				<pre>document.createTextNode(text)</pre>
+				<p> - создаёт новый текстовый узел с заданным текстом:</p><br>
+				<p>let textNode = document.createTextNode('А вот и я');</p>
+				<h3>Методы вставки</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>node.append(...nodes or strings)</pre>
+						</td>
+						<td>
+							<p> – добавляет узлы или строки в конец node</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>node.prepend(...nodes or strings)</pre>
+						</td>
+						<td>
+							<p> – вставляет узлы или строки в начало node</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>node.before(...nodes or strings)</pre>
+						</td>
+						<td>
+							<p>– вставляет узлы или строки до node</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>node.after(...nodes or strings)</pre>
+						</td>
+						<td>
+							<p>– вставляет узлы или строки после node</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>node.replaceWith(...nodes or strings)</pre>
+						</td>
+						<td>
+							<p>– заменяет node заданными узлами или строками</p>
+						</td>
+					</tr>
+				</table>
+				<h4>Пример использования:</h4>
+				<pre>
+               	let div = document.createElement('div');
+						div.className = "alert";
+						div.innerHTML = "&lt;strong&gt;Всем привет!&lt;strong&gt; Вы прочитали важное сообщение.";
+						document.body.append(div);
+               </pre><br><br><br>
+				<h3>Вставить как HTML:</h3>
+				<pre>elem.insertAdjacentHTML(where, html)</pre><br>
+				<p>Первый параметр – куда по отношению к elem производить вставку. Значение должно быть одним из следующих:
+				</p>
+				<table>
+					<tr>
+						<td>
+							<pre>"beforebegin"</pre>
+						</td>
+						<td>
+							<p>– вставить html непосредственно перед elem</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>"afterbegin"</pre>
+						</td>
+						<td>
+							<p>– вставить html в начало elem</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>"beforeend"</pre>
+						</td>
+						<td>
+							<p>– вставить html в конец elem</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>"afterend"</pre>
+						</td>
+						<td>
+							<p>– вставить html непосредственно после elem</p>
+						</td>
+					</tr>
+				</table>
+				<p>Второй параметр – это HTML-строка, которая будет вставлена именно «как HTML».</p>
+				<h3>Удаление узлов</h3>
+				<pre>node.remove()</pre><br><br>
+				<p>Если нам нужно переместить элемент в другое место – нет необходимости удалять его со старого.
+					Все методы вставки автоматически удаляют узлы со старых мест.</p>
+				<h3>Клонирование узлов</h3>
+
+				<table>
+					<tr>
+						<td>
+							<pre>elem.cloneNode(true)</pre>
+						</td>
+						<td>
+							<p>создаёт «глубокий» клон элемента – со всеми атрибутами и дочерними элементами</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.cloneNode(false)</pre>
+						</td>
+						<td>
+							<p>клон будет без дочерних элементов</p>
+						</td>
+					</tr>
+				</table>
+				<h2 id="styles_classes">Стили и классы.Замена, вставка, удаление классов</h2>
+				<table>
+					<tr>
+						<td>
+							<pre>elem.className</pre>
+						</td>
+						<td>
+							<p>заменяет всю строку с классами</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.classList</pre>
+						</td>
+						<td>
+							<p>– это специальный объект с методами для добавления/удаления одного класса</p>
+						</td>
+					</tr>
+				</table>
+				<h4>Методы classList:</h4>
+				<table>
+					<tr>
+						<td>
+							<pre>elem.classList.add/remove("class")</pre>
+						</td>
+						<td>
+							<p>– добавить/удалить класс</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.classList.toggle("class")</pre>
+						</td>
+						<td>
+							<p>– добавить класс, если его нет, иначе удалить</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.classList.contains("class")</pre>
+						</td>
+						<td>
+							<p>– проверка наличия класса, возвращает true/false</p>
+						</td>
+					</tr>
+				</table>
+				<h2 id="SizingScrolling_elem">Размеры и прокрутка элементов</h2>
+				<p>У элементов есть следующие геометрические свойства (метрики):</p>
+				<table>
+					<tr>
+						<td>
+							<pre>offsetParent</pre>
+						</td>
+						<td>
+							<p> – ближайший CSS-позиционированный родитель или ближайший td, th, table, body</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>offsetLeft/offsetTop</pre>
+						</td>
+						<td>
+							<p>– позиция в пикселях верхнего левого угла относительно offsetParent</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>offsetWidth/offsetHeight</pre>
+						</td>
+						<td>
+							<p>– «внешняя» ширина/высота элемента, включая рамки</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>clientLeft/clientTop</pre>
+						</td>
+						<td>
+							<p>– расстояние от верхнего левого внешнего угла до внутренного. Для операционных систем с
+								ориентацией слева-направо эти свойства равны ширинам левой/верхней рамки. Если язык ОС таков,
+								что ориентация справа налево, так что вертикальная полоса прокрутки находится не справа, а
+								слева, то clientLeft включает в своё значение её ширину</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>clientWidth/clientHeight</pre>
+						</td>
+						<td>
+							<p>– ширина/высота содержимого вместе с внутренними отступами padding, но без полосы прокрутки</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>scrollWidth/scrollHeight</pre>
+						</td>
+						<td>
+							<p>– ширины/высота содержимого, аналогично clientWidth/Height, но учитывают прокрученную, невидимую
+								область элемента</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>scrollLeft/scrollTop</pre>
+						</td>
+						<td>
+							<p>– ширина/высота прокрученной сверху части элемента, считается от верхнего левого угла</p>
+						</td>
+					</tr>
+				</table>
+				<p>Все свойства доступны только для чтения, кроме scrollLeft/scrollTop, изменение которых заставляет браузер
+					прокручивать элемент</p>
+				<h2 id="window_dimensions">Размеры окна</h2>
+				<pre>document.documentElement.clientWidth/clientHeight</pre>
+				<p>- ширина/высота окна браузера без полосы прокрутки</p><br>
+				<pre>window.innerWidth/innerHeight</pre>
+				<p>- с полосой прокрутки</p><br><br>
+				<p>полная высота документа</p><br>
+				<pre>let scrollHeight = Math.max(
+						  document.body.scrollHeight, document.documentElement.scrollHeight,
+						  document.body.offsetHeight, document.documentElement.offsetHeight,
+						  document.body.clientHeight, document.documentElement.clientHeight
+						); </pre>
+
+
+
+				<h2 id="scrolling">Прокрутка</h2>
+
+				<table <tr>
+					<td>
+						<pre>window.scrollBy(x,y)</pre>
+					</td>
+					<td>
+						<p>прокручивает страницу относительно её текущего положения</p>
+					</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>window.scrollTo(pageX,pageY)</pre>
+						</td>
+						<td>
+							<p>прокручивает страницу на абсолютные координаты</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>elem.scrollIntoView(top)</pre>
+						</td>
+						<td>
+							<p>прокручивает страницу, чтобы elem оказался вверху.</p>
+						</td>
+					</tr>
+				</table>
+				<p>У него есть один аргумент: <br>
+					если top=true (по умолчанию), то страница будет прокручена, чтобы elem появился в верхней части окна.
+					Верхний край элемента совмещён с верхней частью окна.
+					если top=false, то страница будет прокручена, чтобы elem появился внизу. Нижний край элемента будет
+					совмещён с нижним краем окна</p><br>
+				<pre>element.scrollIntoView(scrollIntoViewOptions)</pre>
+				<p>аргумент типа Object</p><br>
+				<p>scrollIntoViewOptions Необязательный<br>
+					Aргумент типа boolean или типа object со следующим набором опций: <br>
+					behavior - необязательный определяет анимацию скролла. <br>
+					Принимает значение:</p><br>
+				<pre>"auto"</pre> или
+				<pre>"smooth"</pre>. <p>По умолчанию "auto". <br>
+					block Необязательный
+					Вертикальное выравнивание.
+					Одно из значений: </p> <br>
+				<pre>"start"</pre>,
+				<pre>"center"</pre>,
+				<pre>"end"</pre>
+				<pre>"nearest"</pre>. <br>
+				<p>По умолчанию "center".
+					inline Необязательный
+					Горизонтальное выравнивание.
+					Одно из значений:</p> <br>
+				<pre>"start"</pre>,
+				<pre>"center"</pre>,
+				<pre>"end"</pre>,
+				<pre>"nearest"</pre>.
+				<p>По умолчанию "nearest"</p><br>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector("#h").scrollIntoView({ block: "start", behavior: "smooth" });</pre>
+				<h3>Запретить прокрутку</h3>
+				<pre>document.body.style.overflow = "hidden"</pre>
+				<p> - запретить прокрутку</p><br>
+				<pre>document.body.style.overflow = ""</pre>
+				<p>- возобновить</p> <br>
+				<h3>Получение текущей прокрутки</h3>
+				<pre>window.pageXOffset/pageYOffset</pre>
+				<p> - получение текущей прокрутки</p><br>
+
+				<h2 id="coordinates">Координаты</h2>
+				<h3>Координаты относительно окна</h3>
+				<pre>getBoundingClientRect()</pre><br>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector(".block").getBoundingClientRect().x/y</pre><br>
+				<pre>document.querySelector(".block").getBoundingClientRect().top/bottom/left/right</pre><br>
+				<p>Internet Explorer и Edge: не поддерживают x/y, использовать top/left</p><br>
+
+				<h2 id="browser_events">Введение в браузерные события</h2>
+				<h3>Обработчики событий</h3>
+				<pre>document.querySelector(".block").onclick = function(){  }</pre>
+				<p>назначить более одного обработчика так нельзя.</p><br>
+				<pre>element.addEventListener(event, handler[, options]);</pre>
+				<p>назначить более одного обработчика</p><br>
+				<p>event - имя события, например "click"</p><br>
+				<p>handler - ссылка на функцию-обработчик</p><br>
+				<p>options - Дополнительный объект со свойствами:</p><br>
+				<p>once: если true, тогда обработчик будет автоматически удалён после выполнения.</p><br>
+				<p>capture: фаза, на которой должен сработать обработчик options может быть false/true, это тоже самое, что
+					{capture: false/true} <br>
+					passive: если true, то указывает, что обработчик никогда не вызовет preventDefault()</p>
+				<h4>Пример использования:</h4>
+				<pre>window.addEventListener('scroll', function() {
+							  if(pageYOffset < document.documentElement.clientHeight) arrowTop.hidden = true;
+							  else arrowTop.hidden = false;
+							});</pre><br><br>
+				<pre>element.removeEventListener(event, handler[, options])</pre>
+				<p>- удаление обработчика</p><br>
+				<h4>Объект события</h4>
+				<table>
+					<tr>
+						<td>
+							<pre>event.type</pre>
+						</td>
+						<td>
+							<p>- тип события</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>event.currentTarget</pre>
+						</td>
+						<td>
+							<p> - элемент, на котором сработал обработчик</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>event.clientX / event.clientY</pre>
+						</td>
+						<td>
+							<p>- координаты курсора в момент клика относительно окна, для событий мыши</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>event.target</pre>
+						</td>
+						<td>
+							<p>– это «целевой» элемент, на котором произошло событие, в процессе всплытия он неизменен</p>
+						</td>
+					</tr>
+				</table>
+				<h4>Отмена действия браузера</h4>
+				<pre>event.preventDefault()</pre><br>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector(".main-list__title").addEventListener('mousedown', 
+							  function (event) {event.preventDefault(); 
+							});</pre><br>
+				<p>// отменить когда нажали кнопку мыши на элементе</p>
+
+				<h2 id="interface_events">Интерфейсные события</h2>
+				<h3>Типы событий мыши</h3>
+				<h4>Самые часто используемые простые события:</h4>
+				<table>
+					<tr>
+						<td>
+							<pre>mousedown/mouseup</pre>
+						</td>
+						<td>
+							<p>кнопка мыши нажата/отпущена над элементом</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>mouseover/mouseout</pre>
+						</td>
+						<td>
+							<p>курсор мыши появляется над элементом и уходит с него</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>mousemove</pre>
+						</td>
+						<td>
+							<p>каждое движение мыши над элементом генерирует это событие</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>contextmenu</pre>
+						</td>
+						<td>
+							<p>вызывается при попытке открытия контекстного меню, как правило, нажатием правой кнопки мыши. Но,
+								заметим, это не совсем событие мыши, оно может вызываться и специальной клавишей клавиатуры</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>dblclick</pre>
+						</td>
+						<td>
+							<p>вызывается двойным кликом на элементе</p>
+						</td>
+					</tr>
+				</table>
+				<h4>Получение информации о кнопке: which</h4>
+				<pre>event.which == 1</pre>
+				<p> – левая кнопка</p><br>
+				<p>event.which == 2 – средняя кнопка <br>
+					event.which == 3 – правая кнопка </p><br>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector(".block").onmousedown = function(event) {
+							    alert(event.which);
+							  }</pre> <br>
+				<h4>Модификаторы: shift, alt, ctrl и meta</h4>
+				<p>Свойства объекта события:</p> <br>
+				<table>
+					<tr>
+						<td>
+							<pre>shiftKey</pre>
+						</td>
+						<td>
+							<p>Shift</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>altKey</pre>
+						</td>
+						<td>
+							<p>Alt (или Opt для Mac)</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>ctrlKey</pre>
+						</td>
+						<td>
+							<p>Ctrl</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>metaKey</pre>
+						</td>
+						<td>
+							<p>Cmd для Mac</p>
+						</td>
+					</tr>
+				</table>
+				<h4>Пример использования:</h4>
+				<pre>document.querySelector(".block").onmousedown = function(event) {
+						    if(event.shiftKey && event.ctrlKey)
+						       alert("Ура");
+						  }</pre><br>
+
+				<h4>Координаты: clientX/Y, pageX/Y</h4>
+				<pre>clientX</pre><br>
+				<pre>clientY</pre>
+				<p>относительно окна</p><br>
+				<pre>pageX</pre><br>
+				<pre>pageY</pre>
+				<p>относительно документа</p><br>
+				<h4>Пример использования:</h4>
+				<pre>&lt;input onmousemove="this.value=event.clientX+':'+event.clientY" value="Наведи на меня мышь"&gt;</pre>
+				<br>
+				<input onmousemove="this.value=event.clientX+':'+event.clientY" value="Наведи на меня мышь">
+				<br><br>
+				<h4>Отключаем выделение</h4>
+				<pre>document.querySelector(".block").onmousedown = function(event) {
+						     event.preventDefault()
+						  };</pre><br>
+				<h4>Предотвращение копирования</h4>
+				<pre>document.querySelector(".block").oncopy = function(event) {
+						    event.preventDefault()
+						     alert("Копирование запрещено!!")
+						};</pre><br>
+				<h2 id="form_properties_methods">Свойства и методы формы</h2>
+				<h3>Навигация: формы и элементы</h3>
+				<p>Формы в документе входят в специальную коллекцию document.forms</p><br>
+				<pre>document.forms.my </pre>
+				<p>- форма с именем "my" (name="my")</p><br>
+				<pre>document.forms[0] </pre>
+				<p>- первая форма в документе</p><br>
+				<p>Когда мы уже получили форму, любой элемент доступен в именованной коллекции </p>
+				<pre>form.elements</pre><br>
+				<h4>Пример:</h4>
+				<pre>&lt;form name="my"&gt;
+                    &lt;input name="one" value="1"&gt;
+                    &lt;input name="two" value="2"&gt;
+                    &lt;/form>
+                    &lt;script &gt;
+                    // получаем форму
+                    let form = document.forms.my; // &lt;form name="my"&gt; element
+                    // получаем элемент
+                    let elem = form.elements.one; // &lt;input name="one"&gt; element
+                    alert(elem.value); // 1
+                    &lt;/script&gt;</pre><br><br>
+				<p>Может быть несколько элементов с одним и тем же именем, это часто бывает с кнопками-переключателями
+					radio.</p><br>
+				<p>В этом случае form.elements[name] является коллекцией, например<br>
+					let ageElems = form.elements.age;<br>
+					alert(ageElems[0])</p><br><br>
+				<h3>Элементы формы</h3>
+				<h4>input и textarea</h4>
+				<p>К их значению можно получить доступ через свойство</p><br>
+				<pre>input.value</pre>
+				<p> - строка</p><br>
+				<pre>input.checked</pre>
+				<p> - булево значение для чекбоксов</p><br><br>
+				<p>Элемент &lt;select &gt; имеет 3 важных свойства:</p>
+				<table>
+					<tr>
+						<td>
+							<pre>select.options</pre>
+						</td>
+						<td>
+							<p>коллекция из подэлементов &lt;option&gt;</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>select.value</pre>
+						</td>
+						<td>
+							<p>значение выбранного в данный момент &lt;option&gt;</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>select.selectedIndex</pre>
+						</td>
+						<td>
+							<p>номер выбранного &lt;option&gt;</p>
+						</td>
+					</tr>
+				</table><br>
+				<p>Они дают три разных способа установить значение в &lt;select&gt;:</p><br>
+				<p>Найти соответствующий элемент &lt;option&gt; и установить в option.selected значение true. <br>
+					Установить в select.value значение нужного &lt;option&gt;. <br>
+					Установить в select.selectedIndex номер нужного &lt;option&gt;.
+				</p><br><br>
+				<h3>new Option</h3>
+				<pre>option = new Option(text, value, defaultSelected, selected);</pre>
+				<p> - для создания элемента &lt;option&gt;:</p><br>
+				<h4>Параметры:</h4>
+				<p>
+					text – текст внутри &lt;option&gt;,<br>
+					value – значение,<br>
+					defaultSelected – если true, то ставится HTML-атрибут selected,<br>
+					selected – если true, то элемент &lt;option&gt; будет выбранным.</p><br><br>
+
+				<p>Тут может быть небольшая путаница с defaultSelected и selected. Всё просто: defaultSelected задаёт
+					HTML-атрибут, его можно получить как option.getAttribute('selected'),
+					а selected – выбрано значение или нет, именно его важно поставить правильно. Впрочем, обычно ставят оба
+					этих значения в true или не ставят вовсе (т.е. false).</p><br>
+				<h4>Пример:</h4>
+				<pre>let option = new Option("Текст", "value");</pre><br>
+				<h3>Фокусировка: focus/blur</h3>
+				<h4>События focus/blur</h4>
+				<pre>focus</pre>
+				<p>вызывается в момент фокусировки</p><br>
+				<pre>blur</pre>
+				<p>– когда элемент теряет фокус</p><br><br>
+				<p>Их особенности: <br>
+					Они не всплывают. Но можно использовать фазу перехвата или focusin/focusout.
+					Большинство элементов не поддерживают фокусировку по умолчанию. Используйте tabindex, чтобы сделать
+					фокусируемым любой элемент. </p><br>
+				<pre>document.activeElement</pre>
+				<p>Текущий элемент с фокусом</p><br>
+				<h4>Методы focus/blur</h4>
+				<pre>elem.focus();</pre>
+				<pre>elem.blur();</pre>
+				<p> - устанавливают/снимают фокус</p><br>
+				<h3>События: change, input, cut, copy, paste</h3>
+
+				<table>
+					<tr>
+						<td>
+							<pre>change</pre>
+						</td>
+						<td>
+							<p>срабатывает по окончании изменения элемента</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>input</pre>
+						</td>
+						<td>
+							<p>срабатывает каждый раз при изменении значения</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>cut/copy/paste </pre>
+						</td>
+						<td>
+							<p>действия по вырезанию/копированию/вставке</p>
+						</td>
+					</tr>
+				</table>
+
+
+
+			</div>
+		</div>
+		<div class="content content-active" id='jQuery'>
+
+			<div class="left-column">
+				<ul>
+					<li><a href="#nav_elem"> Навигация по элементам</a></li>
+					<li><a href="#jqText" class="t">Изменение текста элемента</a></li>
+					<li><a href="#jqCss">Работа с CSS</a></li>
+					<li><a href="#jqAttr">Работа с атрибутами</a></li>
+					<li><a href="#jqClass">Работа с классами</a></li>
+					<li><a href="#jqWrap">Оборачивание элементов</a></li>
+					<li><a href="#jqInsert">Вставка/удаление элементов</a></li>
+					<li><a href="#jqEvents">Работа с событиями</a></li>
+					<li><a href="#jqPosition">Позиция элемента</a></li>
+					<li><a href="#jqSize">Размеры и прокрутка элемента</a></li>
+				</ul>
+			</div>
+
+			<div class="main">
+				<h3 id='nav_elem'>Навигация по элементам</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>$('CSS-selector')</pre>
+						</td>
+						<td>
+							<p> - группа выбранных элементов</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.prev()</pre>
+						</td>
+						<td>
+							<p> - можно обратиться к соседу сверху</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.next()</pre>
+						</td>
+						<td>
+							<p> - к соседу снизу</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.parent()</pre>
+						</td>
+						<td>
+							<p> - находит родителя элемента</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.closest()</pre>
+						</td>
+						<td>
+							<p> - находит ближайший родительский элемент</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.find()</pre>
+						</td>
+						<td>
+							<p> - ищет элементы по заданному селектору внутри уже найденных</p>
+						</td>
+					</tr>
+				</table>
+				<h3 id='jqText'>Изменение текста элемента</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>.html('Новый текст')</pre>
+						</td>
+						<td>
+							<p> - вводит текст</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.html()</pre>
+						</td>
+						<td>
+							<p> - выводит текст</p>
+						</td>
+					</tr>
+				</table>
+				<h3 id='jqCss'>Работа с CSS</h3>
+				<pre>.css()</pre>
+				<p> - возвращает/устанвливает значения css-свойств</p><br>
+				<pre>$('.www').css('color', 'red');</pre><br>
+				<pre>$('.www').css({color: 'red', font: '12px Arial'});</pre><br>
+				<pre>$('.www').css({color: 'red', 'font-size': '12px'});</pre><br>
+				<pre>$('.www').css({color: 'red', fontSize: '12px'});</pre><br>
+				<h3 id='jqAttr'>Работа с атрибутами</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>.attr('value','www')</pre>
+						</td>
+						<td>
+							<p> - запишет строку 'www' в атрибут value</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.attr('value')</pre>
+						</td>
+						<td>
+							<p> - получить значение атрибута value</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.removeAttr('value')</pre>
+						</td>
+						<td>
+							<p> - удалить атрибут</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.prop()</pre>
+						</td>
+						<td>
+							<p> - для атрибутов типа disabled и checked</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.val()</pre>
+						</td>
+						<td>
+							<p> - для работы с атрибутом value инпутов, для тега textarea получить внутреннее содержимое</p>
+						</td>
+					</tr>
+				</table>
+				<h3 id="jqClass">Работа с классами</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>.attr('class', 'new-class')</pre>
+						</td>
+						<td>
+							<p> - затереть имеющийся класс, написать новый</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.addClass()</pre>
+						</td>
+						<td>
+							<p> - добавить класс</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.removeClass()</pre>
+						</td>
+						<td>
+							<p> - удалить класс</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.toggleClass()</pre>
+						</td>
+						<td>
+							<p> - добавить указанный класс, если его нет, и убирать его если он есть</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.hasClass()</pre>
+						</td>
+						<td>
+							<p> - проверяет наличие или отсутствие класса</p>
+						</td>
+					</tr>
+				</table>
+				<h3 id='jqWrap'>Оборачивание элементов</h3>
+				<pre>.wrap()</pre>
+				<p> - позволяет обернуть каждый найденный элемент в указанный тег</p><br>
+				<pre>$('.www').wrap('div');</pre><br>
+				<pre>$('.www').wrap('< div class="zzz">< /div >');</pre><br>
+				<table>
+					<tr>
+						<td>
+							<pre>.unwrap()</pre>
+						</td>
+						<td>
+							<p> - развернуть элемент (то есть убрать родителя)</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.wrapInner()</pre>
+						</td>
+						<td>
+							<p> - обернуть внутри</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.wrapAll()</pre>
+						</td>
+						<td>
+							<p> - обернуть все найденные элементы вместе</p>
+						</td>
+					</tr>
+				</table>
+				<h3 id='jqInsert'>Вставка элементов</h3>
+				<pre>.prepend()</pre>
+				<p> - добавлять текст в начало элементов</p><br>
+				<pre>.append()</pre><br>
+				<pre>.before()</pre>
+				<p> - вставляет элемент</p><br>
+				<pre>.prependTo()</pre><br>
+				<pre>.insertBefore()</pre><br>
+				<pre>.insertAfter()</pre><br>
+				<pre>.replaceWith()</pre>
+				<p> - заменять одни элементы на другие</p><br>
+				<h3>Удаление элементов</h3>
+				<table>
+					<tr>
+						<td>
+							<pre>.remove()</pre>
+						</td>
+						<td>
+							<p> - удаляет элементы навсегда</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.detach()</pre>
+						</td>
+						<td>
+							<p> - удаляет выбранные элементы с возможностью их восстановления</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<pre>.empty()</pre>
+						</td>
+						<td>
+							<p> - удалить содержимое элементов</p>
+						</td>
+					</tr>
+				</table>
+
+				<h3 id='jqEvents'>Работа с событиями</h3>
+				<pre>$(селектор).click(функция)</pre><br>
+				<pre>$('li').on('click', function() { });</pre><br>
+				<p>Несколько событий одновременно</p><br>
+				<pre>$('li').on('click mousemove', function func() { });</pre><br>
+				<p>Делегирование</p><br>
+				<pre>$('ul').on('click', 'li', function() { $(this).append('!'); });</pre><br>
+				<p>Отмена действия по умолчанию</p><br>
+				<pre>event.preventDefault();</pre><br>
+				<pre>return false;</pre><br>
+				<h3 id='jqPosition'>Позиция элемента</h3>
+				<pre>.offset()</pre>
+				<p> - возвращает координаты относительно начала страницы</p><br>
+				<pre>.offset().top</pre><br>
+				<pre>.offset().left</pre><br>
+				<pre>.position()</pre>
+				<p> - относительно ближайшего родителя, у которого задан тип позиционирования (css-свойство position равно
+					relative или absolute или fixed)</p><br>
+				<pre>.offset(value);</pre><br>
+				<p>изменяет координаты всех выбранных элементов делая их равными value. Значение value должен быть объектом
+					с двумя полями — {top:newTop, left:newLeft}.</p><br>
+				<pre>.offset(function(index, value));</pre><br>
+				<p>устанавливает новое значение координат элементов, которое возвращает пользовательская функция. Функция
+					вызывается отдельно для каждого из выбранных элементов. При вызове ей передаются следующие параметры:
+					index — позиция элемента в наборе, value — текущие координаты элемента.</p>
+				<h3 id='jqSize'>Размеры и прокрутка элементов</h3>
+				<pre>.height()</pre>
+				<p> - получает высоту элемента</p><br>
+				<pre>.width()</pre>
+				<p> - получает ширину элемента</p><br>
+				<pre>.height( value )</pre>
+				<p> - устанавливает высоту элемента</p><br>
+				<p>Данные методы можно использовать для получения высоты документа и окна</p><br>
+				<pre>$(window).height();</pre><br>
+				<pre>$(document).height();</pre><br>
+				<pre>$(window).width();</pre><br>
+				<pre>$(document).width();</pre><br>
+				<pre>.innerHeight()</pre>
+				<p> - возвращает высоту элемента, включая внутренние отступы, в пикселях</p><br>
+				<pre>.innerWidth()</pre><br>
+				<pre>.outerHeight()</pre>
+				<p> - возвращает высоту элемента, включены верхние и нижние внутренние отступы (padding), не включен margin
+				</p><br>
+				<pre>.outerHeight(true)</pre>
+				<p> - возвращает высоту элемента, включены верхние и нижние внутренние отступы (padding), включен margin</p>
+				<br>
+				<pre>.outerWidth()</pre><br>
+				<pre>.outerWidth(true)</pre>
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/script.js"></script>
+
+</body>
+
+</html>
