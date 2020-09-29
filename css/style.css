@@ -1,8 +1,9 @@
 @charset "UTF-8";
-font-face {
+@font-face {
 	font-family: "Roboto";
 	src: url("../fonts/Roboto-Regular.eot");
-	src: local("☺"), url("../fonts/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto-Regular.ttf") format("truetype"), url("../fonts/Roboto-Regular.svg") format("svg");
+	src: local("☺"), url("../fonts/Roboto-Regular.woff") format("woff"),
+		url("../fonts/Roboto-Regular.ttf") format("truetype"), url("../fonts/Roboto-Regular.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -140,7 +141,7 @@ body.lock {
 }
 .header__link {
 	font-size: 20px;
-	
+
 	color: #f7f1df;
 	display: block;
 	margin: 0 25px 0 0;
@@ -215,4 +216,12 @@ body.lock {
 }
 .main td {
 	vertical-align: top;
+}
+code {
+	font-size: 16px;
+	white-space: pre-line;
+}
+li {
+	font-size: 16px;
+	line-height: 28px;
 }
